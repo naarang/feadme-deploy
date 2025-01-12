@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom';
 const ProjectDetailPage = () => {
   const [type, setType] = useState('like'); // 'like' | 'disappointed';
   const { id } = useParams();
+  const queryParams = new URLSearchParams(location.search);
+  const projectName = queryParams.get('name'); // 쿼리 파라미터 'name' 값을 받음
 
   const shareLink = () => {
     navigator.clipboard
@@ -21,7 +23,7 @@ const ProjectDetailPage = () => {
 
   return (
     <div className="h-full">
-      <ReportNavbar title="삐약톤" />
+      <ReportNavbar title={projectName!} />
       {/* <div className="mt-8 py-4 px-8 text-[#AFAFAF] text-sm font-normal">
         설명
       </div> */}
