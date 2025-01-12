@@ -1,4 +1,4 @@
-import FeedbackIcon from '@/assets/icons/feedbackIcon.svg?react';
+import FeedbackIcon from '@/assets/icons/FeedbackIcon.svg?react';
 import Button from '@/components/Common/Button';
 import { useNavigate } from 'react-router-dom';
 
