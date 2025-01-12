@@ -13,7 +13,7 @@ const OnboardingPage = () => {
     navigate(`/nickname?id=${id}`);
   };
 
-  const { data, isError } = useGetUserName(id || '');
+  const { data, isError } = useGetUserName(Number(id) || 1);
 
   if (isError) return <div>에러가 발생했습니다.</div>;
 
