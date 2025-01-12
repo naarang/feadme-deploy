@@ -20,7 +20,7 @@ const FeedbackDetailPage = () => {
   const { data, isError } = useGetEvaluation(id || '');
 
   if (isError) return <div>에러가 발생했습니다.</div>;
-  if (data) updateFeedbackData(data);
+  if (data?.data) updateFeedbackData(data?.data);
 
   const showCurrentStep = () => {
     switch (step) {
