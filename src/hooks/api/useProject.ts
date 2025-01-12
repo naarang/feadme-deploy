@@ -1,7 +1,7 @@
-import { createProject, getProjectId } from '@/api/project';
+import { createProject, getProjectDetail, getProjectId } from '@/api/project';
 import { RESTYPE } from '@/types/api/common';
 import { ProjectIdResponse } from '@/types/api/project';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
 // 6.1 암호화된 project-Id 받기
 export const useGetProjectId = () => {
@@ -37,5 +37,12 @@ export const useCreateProject = () => {
     onError: () => {
       console.log('프로젝트 등록 성공');
     },
+  });
+};
+
+export const useGetProjectDetail = (type: boolean, projectId: number) => {
+  return useQuery({
+    queryKey: ['project', projectId, type],
+    queryFn: () => getProjectDetail(type, projectId),
   });
 };

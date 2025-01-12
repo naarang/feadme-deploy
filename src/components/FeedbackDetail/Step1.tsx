@@ -38,7 +38,7 @@ const FeedbackDetailStep1 = ({
             <h3 className="text-black100 h1">어떤 사람인가요?</h3>
             <div className="flex flex-wrap pt-6 gap-3">
               {HASH_TAG_LIST.filter((value) =>
-                feedbackData.positive_tag_ids.includes(value.id),
+                feedbackData?.positive_tag_ids?.includes(value.id),
               ).map((value) => (
                 <button
                   className={`flex items-center gap-[6px] py-2 px-3 bg-black rounded-3xl`}

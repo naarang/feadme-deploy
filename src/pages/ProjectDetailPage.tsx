@@ -20,11 +20,11 @@ const ProjectDetailPage = () => {
   };
 
   return (
-    <div>
+    <div className="h-full">
       <ReportNavbar title="삐약톤" />
-      <div className="mt-8 py-4 px-8 text-[#AFAFAF] text-sm font-normal">
+      {/* <div className="mt-8 py-4 px-8 text-[#AFAFAF] text-sm font-normal">
         설명
-      </div>
+      </div> */}
       <div className="w-full flex justify-center">
         <div className="w-fit my-8 flex justify-center bg-[rgba(255,255,255,0.16)] rounded-3xl">
           <div
