@@ -44,11 +44,11 @@ const ProjectDetailSection = ({ type }: ProjectDetailSectionProps) => {
           </div>
           <div className="p-2 flex flex-col gap-4">
             <div className="flex flex-col gap-1">
-              {/* {reportTags?.data.tags.map((tag) => ( */}
-              <div className="bg-white w-full rounded-xl p-3 text-[#191919] text-xs font-bold">
-                팀원 별명
-              </div>
-              {/* ))} */}
+              {/* {reportTags?.data.tags.map((tag) => (
+                <div className="bg-white w-full rounded-xl p-3 text-[#191919] text-xs font-bold">
+                  팀원 별명
+                </div>
+              ))} */}
             </div>
           </div>
         </div>

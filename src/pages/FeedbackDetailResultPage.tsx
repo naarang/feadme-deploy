@@ -1,6 +1,6 @@
 import AppBar from '@/components/Common/AppBar';
 import FilledButton from '@/components/Common/FilledButton';
-import FeedbackIcon from '@/assets/icons/feedbackIcon.svg?react';
+import FeedbackIcon from '@/assets/icons/FeedbackIcon.svg?react';
 import { useNavigate } from 'react-router-dom';
 
 const FeedbackDetailResultPage = () => {
