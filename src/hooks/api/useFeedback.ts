@@ -3,7 +3,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
 // 3.1 암호화된 project-Id로부터 사용자 이름 받기 훅
-export const useGetUserName = (cryptographyProjectId: string) => {
+export const useGetUserName = (cryptographyProjectId: number) => {
   return useQuery({
     queryKey: ['username', cryptographyProjectId],
     queryFn: () => getUserName(cryptographyProjectId),

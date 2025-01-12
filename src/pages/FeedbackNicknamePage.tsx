@@ -13,7 +13,7 @@ const FeedbackNicknamePage = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
 
-  const { data, isError } = useGetUserName(id || '');
+  const { data, isError } = useGetUserName(Number(id) || 1);
 
   const { updateFeedbackData } = useFeedbackStore();
 

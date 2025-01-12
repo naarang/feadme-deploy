@@ -1,7 +1,6 @@
 import FilledButton from '@/components/Common/FilledButton';
 import ProjectDetailSection from '@/components/ProjectDetail/ProjectDetailSection';
 import ReportNavbar from '@/components/Report/ReportNavbar';
-import { useGetProjectId } from '@/hooks/api/useProject';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -9,7 +8,16 @@ const ProjectDetailPage = () => {
   const [type, setType] = useState('like'); // 'like' | 'disappointed';
   const { id } = useParams();
 
-  const { mutate } = useGetProjectId();
+  const shareLink = () => {
+    navigator.clipboard
+      .writeText(`https://feedme-union.vercel.app/onboarding?id=${id}`)
+      .then(() => {
+        alert('복사되었습니다!');
+      })
+      .catch((error) => {
+        console.error('클립보드 복사 실패:', error);
+      });
+  };
 
   return (
     <div className="h-full">
@@ -34,10 +42,7 @@ const ProjectDetailPage = () => {
         </div>
       </div>
       <ProjectDetailSection type={type} />
-      <FilledButton
-        title="피드미 요청하기"
-        onClick={() => mutate(Number(id))}
-      />
+      <FilledButton title="피드미 요청하기" onClick={() => shareLink()} />
     </div>
   );
 };
