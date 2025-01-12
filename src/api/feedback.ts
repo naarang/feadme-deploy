@@ -2,9 +2,9 @@ import { FeedBackDataType } from '@/store/feedback';
 import { apiWithoutAuth, apiAiWithoutAuth, api } from '.';
 
 // 3.1 암호화된 project-Id로부터 사용자 이름 받기
-export const getUserName = async (cryptographyProjectId: string) => {
+export const getUserName = async (cryptographyProjectId: number) => {
   const response = await apiWithoutAuth.get(
-    `/projects/${cryptographyProjectId}/users/name`,
+    `/projects/users/name?id=${cryptographyProjectId}`,
   );
   return response.data;
 };

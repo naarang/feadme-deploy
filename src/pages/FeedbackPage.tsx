@@ -3,11 +3,12 @@ import FeedbackStep1 from '@/components/Feedback/Step1';
 import FeedbackStep2 from '@/components/Feedback/Step2';
 import FeedbackStep3 from '@/components/Feedback/Step3';
 import FeedbackStep4 from '@/components/Feedback/Step4';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useGetUserName } from '@/hooks/api/useFeedback';
 
 const FeedbackPage = () => {
-  const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get('id');
 
   const [step, setStep] = useState<number>(1);
 
@@ -15,7 +16,7 @@ const FeedbackPage = () => {
     setStep((step) => step + changeValue);
   };
 
-  const { data, isError } = useGetUserName(id || '');
+  const { data, isError } = useGetUserName(Number(id) || 1);
 
   if (isError) return <div>에러가 발생했습니다.</div>;
 
