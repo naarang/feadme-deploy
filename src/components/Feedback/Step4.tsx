@@ -5,7 +5,7 @@ import AppBar from '@/components/Common/AppBar';
 import { useFeedbackStore } from '@/store/feedback';
 import CommentBox from '../Common/CommentBox';
 import { useEditPost } from '@/hooks/api/useFeedback';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 const FeedbackStep4 = ({
   onChangeStep,
@@ -16,7 +16,8 @@ const FeedbackStep4 = ({
 }) => {
   const { feedbackData, updateFeedbackData } = useFeedbackStore();
   const { mutateAsync } = useEditPost();
-  const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get('id');
 
   const [step, setStep] = useState<number>(
     feedbackData.negative_impact.length > 0 ? 3 : 1,
@@ -42,6 +43,7 @@ const FeedbackStep4 = ({
   };
 
   const handleSubmit = async () => {
+    console.log(step, id);
     switch (step) {
       case 1:
         updateFeedbackData({ ...feedbackData, negative_situation: comment });
@@ -53,6 +55,7 @@ const FeedbackStep4 = ({
         break;
       case 3:
         updateFeedbackData({ ...feedbackData, negative_impact: comment });
+        console.log(id, feedbackData);
         // TODO: 여기서 API 호출하고 성공 시 제출 완료 페이지로 이동하기!
         if (id) await mutateAsync({ id, body: feedbackData });
         break;
