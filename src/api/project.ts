@@ -1,4 +1,8 @@
-import { ProjectIdResponse, ProjectRequest } from '@/types/api/project';
+import {
+  ProjectDetailResponse,
+  ProjectIdResponse,
+  ProjectRequest,
+} from '@/types/api/project';
 import { api } from '@/api';
 import { RESTYPE } from '@/types/api/common';
 
@@ -15,5 +19,18 @@ export const getProjectId = async (
 // 6.3 프로젝트 생성하기
 export const createProject = async (projectInfo: ProjectRequest) => {
   const response = await api.post('/projects', projectInfo);
+  return response.data;
+};
+
+// 6.4 프로젝트 단일 조회하기
+export const getProjectDetail = async (
+  type: boolean,
+  projectId: number,
+): Promise<RESTYPE<ProjectDetailResponse>> => {
+  const response = await api.get(`/projects/${projectId}/details`, {
+    params: {
+      'is-positive': type,
+    },
+  });
   return response.data;
 };

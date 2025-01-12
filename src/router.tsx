@@ -44,7 +44,7 @@ const Router = () => {
           <Route path="/nickname" element={<FeedbackNicknamePage />} />
           <Route path="/feedback" element={<FeedbackPage />} />
           <Route path="/feedback-result" element={<FeedbackResultPage />} />
-          <Route path="/feedback-detail" element={<FeedbackDetailPage />} />
+          <Route path="/feedback/:id" element={<FeedbackDetailPage />} />
           <Route
             path="/feedback-detail/result"
             element={<FeedbackDetailResultPage />}

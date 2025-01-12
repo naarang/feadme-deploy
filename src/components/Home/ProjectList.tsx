@@ -1,4 +1,3 @@
-import CTAIcon from '@/assets/icons/CTAIcon.svg?react';
 import DarkCTAIcon from '@/assets/icons/DarkCTAIcon.svg?react';
 import { useNavigate } from 'react-router-dom';
 import Tag from '@/components/Common/Tag';
@@ -19,25 +18,24 @@ const ProjectList = ({ onOpen }: ProjectListProps) => {
       {/* CTA */}
       <div className="flex items-center justify-between pb-2 border-b border-b-white300 mb-2">
         <div className="text-[#646464] text-xs font-bold">프로젝트 리스트</div>
-        <CTAIcon
-          onClick={() => {
-            navigate('/');
-          }}
-        />
+        <DarkCTAIcon onClick={onOpen} />
       </div>
       {/* 프로젝트 리스트 */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {data?.data.projects.map((project) => (
+          {data?.data?.projects?.map((project) => (
             <Tag
               key={project.id}
-              onClick={() => navigate(`/project/${project.id}`)}
+              onClick={() =>
+                navigate(
+                  `/project/${project.id}?name=${encodeURIComponent(project.title)}`,
+                )
+              }
               title={project.title}
               type={mode.LIGHT}
             />
           ))}
         </div>
-        <DarkCTAIcon onClick={onOpen} />
       </div>
     </div>
   );
