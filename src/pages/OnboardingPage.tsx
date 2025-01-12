@@ -22,7 +22,7 @@ const OnboardingPage = () => {
       <AppBar theme="dark" type="basic" isProgress={false} title="먹이주기" />
       <main className="flex flex-col items-center w-full p-6 pt-28">
         <h1 className="py-6 text-white100 h1 text-center">
-          {data}님에게 피드백을 선물해주세요!
+          {data?.data?.name}님에게 피드백을 선물해주세요!
         </h1>
         <FeedbackIcon />
       </main>

@@ -25,11 +25,21 @@ const FeedbackPage = () => {
       case 1:
         return <FeedbackStep1 onChangeStep={onChangeStep} />;
       case 2:
-        return <FeedbackStep2 onChangeStep={onChangeStep} nickname={data} />;
+        return (
+          <FeedbackStep2
+            onChangeStep={onChangeStep}
+            nickname={data?.data?.name}
+          />
+        );
       case 3:
         return <FeedbackStep3 onChangeStep={onChangeStep} />;
       case 4:
-        return <FeedbackStep4 onChangeStep={onChangeStep} nickname={data} />;
+        return (
+          <FeedbackStep4
+            onChangeStep={onChangeStep}
+            nickname={data?.data?.name}
+          />
+        );
     }
   };
 
