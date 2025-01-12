@@ -51,7 +51,7 @@ const ProjectDetailSection = ({ type }: ProjectDetailSectionProps) => {
             <div className="flex flex-col gap-1">
               {data?.data?.evaluations.map((evaluation) => (
                 <div
-                  onClick={() => navigate(`/feedback:${evaluation.id}`)}
+                  onClick={() => navigate(`/feedback/:${evaluation.id}`)}
                   key={evaluation.id}
                   className="bg-white w-full rounded-xl p-3 text-[#191919] text-xs font-bold"
                 >

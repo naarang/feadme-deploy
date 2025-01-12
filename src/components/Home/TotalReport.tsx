@@ -29,11 +29,13 @@ const TotalReport = () => {
         <div className="text-[#191919] text-base font-bold mb-3 p-2">
           Top 3 키워드
         </div>
-        <div className="flex gap-2 mb-3">
+        <div className="flex gap-2 mb-3 flex-wrap">
           {data?.data?.tags?.length ? (
-            HASH_TAG_LIST.filter((value) =>
-              data?.data?.tags.includes(value.id),
-            ).map((value) => <Tag title={`🌟 ${value.tag}`} type={mode.DARK} />)
+            HASH_TAG_LIST.filter((value) => data?.data?.tags.includes(value.id))
+              .slice(0, 3)
+              .map((value) => (
+                <Tag title={`🌟 ${value.tag}`} type={mode.DARK} />
+              ))
           ) : (
             <Tag title={'환영합니다!'} type={mode.DARK} />
           )}
@@ -45,8 +47,9 @@ const TotalReport = () => {
               좋아요
             </div>
             <div className="text-[#646464] text-xs font-normal">
-              {data?.data?.positive_content?.length ??
-                '새로운 프로젝트를 생성해서 나를 알아봅시다!'}
+              {data?.data?.positive_content?.length
+                ? data?.data?.positive_content.slice(0, 30) + '...'
+                : '새로운 프로젝트를 생성해서 나를 알아봅시다!'}
             </div>
           </div>
           <div className="p-4 pb-5 bg-white200 flex flex-col gap-2 rounded-xl">
@@ -54,8 +57,9 @@ const TotalReport = () => {
               아쉬워요
             </div>
             <div className="text-[#646464] text-xs font-normal">
-              {data?.data?.negative_content?.length ??
-                '새로운 프로젝트를 생성해서 나를 알아봅시다!'}
+              {data?.data?.negative_content?.length
+                ? data?.data?.negative_content.slice(0, 30) + '...'
+                : '새로운 프로젝트를 생성해서 나를 알아봅시다!'}
             </div>
           </div>
         </div>
